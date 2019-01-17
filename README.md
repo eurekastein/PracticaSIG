@@ -1,0 +1,2 @@
+# practica1
+GIS
