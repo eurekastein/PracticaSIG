@@ -1,20 +1,20 @@
 # Practica 1: Introducción al manejo de Bases de Datos Espaciales (BDE)
 
-Una base de datos espacial como su nombre los dice trabaja con objetos existentes en un espacio delimitado por geometrías, en este tipo de bases de datos es necesario determinar un Sistema de Referencia Espacial para definir la localización y relación entre objetos analizar la composición de los objeto en el espacio, determinar su relación con otros objetos, transformarlos, entre otras operaciones.
+Una base de datos espacial como su nombre los dice trabaja con objetos existentes en un espacio delimitado por geometrías, en este tipo de bases de datos es necesario determinar un Sistema de Referencia Espacial para definir la localización y relación entre objetos con la finalidad de analizar la composición del espacio, determinar su relación con otros objetos, transformarlos, entre otras operaciones.
 
-Estructurar este tipo de bases de datos implica un proceso complejo donde proyectamos las interacciones espaciales del mundo real a una representación simplificada a través de primitivas básicas de dibujo o geometría, de tal forma que toda la complejidad de la realidad ha de ser reducida a puntos, líneas o polígonos.
+Estructurar este tipo de bases de datos implica un proceso complejo donde proyectamos las interacciones espaciales del mundo real a una representación simplificada a través de primitivas básicas de dibujo o geometría, de tal forma que toda la complejidad de la realidad puede ser reducida a puntos, líneas o polígonos. Sin embargo, más allá del procesos de generación de información es importante tomar en cuenta que existe un estandar para la estruccturacion de este tipo de datos. En 1994 se fundó El Open Geospatial Consortium (OGC) que hasta mayo del 2019  agrupa 527 miembros de organizaciones públicas y privadas encargados de la creación de estándares abiertos que posibiliten la interoperación de  diferentes sistemas de geoprocesamiento y facilitar el intercambio de la información geográfica en beneficio de los usuarios en el marco de los Sistemas de Información Geográfica (SIG).
 
-
-
-## ¿Pero como podemos extraer información de una base de datos espacial? 
+A lo largo de esta practica vamos a estudiar la forma en la que se construye la estructura jerárquica de los objetos geométricos en una base de datos según la OGC, como se puede observar en la imagen.
+ 
 <img src="https://postgis.readthedocs.io/es/latest/_images/ogc_sfs.png" alt="Markdown Monster icon"
      style="margin-left: 10px; margin-right: 10px;" />
 
+## Comencemos
 
 
-En este primer ejercicio vamos a estudiar la forma en la que se construye la estructura jerárquica de los objetos geométricos en una base de datos.
---Supongamos que obtuvimos las coordenadas de varios puntos alrededor de un lago y las representamos como puntos. 
---Pero lo que necesitamos es un poligo que represente el lago. 
+
+Supongamos que obtuvimos las coordenadas de varios puntos alrededor de un lago y las representamos como puntos. 
+Pero lo que necesitamos es un poligo que represente el lago. 
 --El primer paso es crear una linea a partir de los puntos de la tabla waypoints. 
 --y para ello debemos considerar el orden en el que los juntemos, por lo que es necesario ordenarlos por id, 
 --usando la cláusula GROUP BY track_id, que agrupa los puntos de acuerdo a un identificador de recorrido.
